@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+        android:id="@+id/editTextText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hint_edit_text"
+        android:inputType="text">
+        <com.google.android.material.textfield.TextInputEditText
+            android:textSize="@dimen/basic_text_size"
+            android:id="@+id/et_task"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:textSize="@dimen/basic_text_size"
+        android:layout_marginTop="@dimen/basic_vertical_separation"
+        android:id="@+id/buttonAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_btn_add" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTask"
+        android:layout_marginTop="@dimen/basic_vertical_separation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
