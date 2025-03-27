@@ -2,5 +2,7 @@
     <string name="app_name">TaskListJava</string>
     <string name="hint_edit_text">Digita una tarea</string>
     <string name="label_btn_add">Añadir</string>
+    <string name="label_btn_eliminar">Eliminar tarea</string>
     <string name="label_example">Tarea ejemplo App TaskListJava</string>
+    <string name="editar">editar</string>
 </resources>

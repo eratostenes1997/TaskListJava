@@ -1,5 +1,7 @@
 package com.paprika.tasklistjava.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.paprika.tasklistjava.R;
+import com.paprika.tasklistjava.activities.DetailActivity;
+import com.paprika.tasklistjava.activities.MainActivity;
 
 import java.util.List;
 
@@ -28,7 +32,16 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull TaskAdapter.TaskViewHolder holder, int position) {
-        holder.tvTaskList.setText(taskList.get(position));
+        String task = taskList.get(position);
+        holder.tvTaskList.setText(task);
+
+        holder.itemView.setOnClickListener(v -> {
+            Context context = v.getContext();
+            Intent intent = new Intent(context, DetailActivity.class);
+            intent.putExtra("task", task);
+            intent.putExtra("position", position);
+            ((MainActivity) context).startActivityForResult(intent, 1);
+        });
     }
 
     @Override
