@@ -73,9 +73,11 @@ public class MainActivity extends AppCompatActivity {
             if (position != -1 && newTask != null) {
                 itemList.set(position, newTask);
                 adapter.notifyItemChanged(position);
+                Toast.makeText(getApplicationContext(), "Tarea actualizada", Toast.LENGTH_LONG).show();
             } else if (data.hasExtra("position")) {
                 itemList.remove(position);
                 adapter.notifyItemRemoved(position);
+                Toast.makeText(getApplicationContext(), "Tarea eliminada", Toast.LENGTH_LONG).show();
             }
         }
     }

@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,6 +50,7 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void editarTareas(View view) {
+        etTaskDetail.setText(task);
         String newTask = etTaskDetail.getText().toString().trim();
         if (!newTask.isEmpty()) {
             Intent intent = new Intent();
@@ -56,6 +58,8 @@ public class DetailActivity extends AppCompatActivity {
             intent.putExtra("newTask", newTask);
             setResult(RESULT_OK, intent);
             finish();
+        }else {
+            Toast.makeText(getApplicationContext(), "Por favor ingresa la tarea actualizada", Toast.LENGTH_LONG).show();
         }
     }
 
