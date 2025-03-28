@@ -19,7 +19,7 @@ import java.util.List;
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder> {
     private List<String> taskList;
 
-    public TaskAdapter(List<String> taskList){
+    public TaskAdapter(Context context, List<String> taskList) {
         this.taskList = taskList;
     }
 
@@ -31,12 +31,12 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TaskAdapter.TaskViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
         String task = taskList.get(position);
         holder.tvTaskList.setText(task);
 
-        holder.itemView.setOnClickListener(v -> {
-            Context context = v.getContext();
+        holder.itemView.setOnClickListener(vista -> {
+            Context context = vista.getContext();
             Intent intent = new Intent(context, DetailActivity.class);
             intent.putExtra("task", task);
             intent.putExtra("position", position);
@@ -52,13 +52,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     static class TaskViewHolder extends RecyclerView.ViewHolder {
         TextView tvTaskList;
 
-
         public TaskViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTaskList = itemView.findViewById(R.id.tvTaskList);
-
         }
     }
-
-
 }
